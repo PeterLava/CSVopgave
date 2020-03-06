@@ -1,7 +1,4 @@
 package CSVOpgavePck;
-
-import com.sun.deploy.util.StringUtils;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

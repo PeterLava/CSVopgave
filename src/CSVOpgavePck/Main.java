@@ -1,20 +1,17 @@
 package CSVOpgavePck;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class Main {
-    private static MovieProfile[] movieProfiles = new MovieProfile[500];
     private static Sorting sorting = new Sorting();
     private static PrintOut printOut = new PrintOut();
     private static Init init = new Init();
 
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+        MovieProfile[] movieProfiles = new MovieProfile[500];
         init.initialiseObjects(movieProfiles);
         Arrays.sort(movieProfiles, (b, a) -> a.titleYear.compareTo(b.titleYear));
         boolean run = true;
@@ -44,12 +41,16 @@ public class Main {
                 sorting.searchForDirector(movieProfiles);
                 break;
             case "4":
+                WriteToCSV writeToCSV = new WriteToCSV();
+                writeToCSV.convertToCSV(movieProfiles);
+                break;
+            case "5":
                 run = false;
                 break;
             default:
                 System.out.print("invalid input, ");
         }
-            if(!(input.equals("4"))){
+            if(!(input.equals("5"))){
                 System.out.print("press any key for menu");
                 scan.nextLine();
             }

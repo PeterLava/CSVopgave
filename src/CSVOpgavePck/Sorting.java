@@ -1,5 +1,4 @@
 package CSVOpgavePck;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
