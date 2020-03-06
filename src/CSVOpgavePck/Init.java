@@ -1,5 +1,7 @@
 package CSVOpgavePck;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,6 +19,7 @@ class Init{
             int i = 0;
             while ((line = br.readLine()) != null) {
                 String[] movieLine = line.split(cvsSplitBy);
+                movieLine[11] = movieLine[11].trim();
                 movieProfile[i] = new MovieProfile(movieLine[0], movieLine[1], movieLine[2], movieLine[3],
                         movieLine[4], movieLine[5], movieLine[6], movieLine[7], movieLine[8], movieLine[9],
                         movieLine[10], movieLine[11], movieLine[12], movieLine[13], movieLine[14], movieLine[15],
