@@ -1,7 +1,5 @@
 package CSVOpgavePck;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -9,26 +7,20 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-
         String csvFile = "C:/Users/lenovo/desktop/movie_metadata_500.csv";
         BufferedReader br = null;
         String line;
         String cvsSplitBy = ",";
         MovieProfile[] movieProfiles = new MovieProfile[500];
-        int i = 0;
         final String textGreen = "\u001B[32m";
         final String textRed = "\u001B[31m";
         final String textBlue = "\u001B[34m";
         final String textReset = "\u001B[1;0m";
 
-
-
-
         try {
-
             br = new BufferedReader(new FileReader(csvFile));
+            int i = 0;
             while ((line = br.readLine()) != null) {
-
                 String[] movieLine = line.split(cvsSplitBy);
                 movieProfiles[i] = new MovieProfile(movieLine[0],movieLine[1],movieLine[2],movieLine[3],
                         movieLine[4],movieLine[5],movieLine[6],movieLine[7],movieLine[8],movieLine[9],
@@ -37,8 +29,6 @@ public class Main {
                         movieLine[22],movieLine[23],movieLine[24],movieLine[25],movieLine[26],movieLine[27]);
                 i++;
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -51,22 +41,18 @@ public class Main {
             }
         }
 
-
       Arrays.sort(movieProfiles, (b,a) -> a.titleYear.compareTo(b.titleYear));
 
-        for (int j = 0; j < 500 ; j++) {
+        for (int i = 0; i < 500 ; i++) {
             System.out.print(textReset);
             System.out.print("Movie title: ");
-            System.out.print(textBlue+movieProfiles[j].getMovieTitle()+textReset);
+            System.out.print(textBlue+movieProfiles[i].getMovieTitle()+textReset);
             System.out.print(" Director: ");
-            System.out.print(textGreen+movieProfiles[j].getDirectorName()+textReset);
+            System.out.print(textGreen+movieProfiles[i].getDirectorName()+textReset);
             System.out.print(" Genre: ");
-            System.out.print(textRed+movieProfiles[j].getGenres()+textReset);
+            System.out.print(textRed+movieProfiles[i].getGenres()+textReset);
             System.out.print(" Year: ");
-            System.out.println(textRed+movieProfiles[j].getTitleYear()+textReset);
-
+            System.out.println(textRed+movieProfiles[i].getTitleYear()+textReset);
         }
-
     }
-
 }
