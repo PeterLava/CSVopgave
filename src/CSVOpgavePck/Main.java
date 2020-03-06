@@ -6,13 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class Reader {
+public class Main {
 
     public static void main(String[] args) {
 
         String csvFile = "C:/Users/lenovo/desktop/movie_metadata_500.csv";
         BufferedReader br = null;
-        String line = "";
+        String line;
         String cvsSplitBy = ",";
         MovieProfile[] movieProfiles = new MovieProfile[500];
         int i = 0;
@@ -29,7 +29,7 @@ public class Reader {
             br = new BufferedReader(new FileReader(csvFile));
             while ((line = br.readLine()) != null) {
 
-                String movieLine[] = line.split(cvsSplitBy);
+                String[] movieLine = line.split(cvsSplitBy);
                 movieProfiles[i] = new MovieProfile(movieLine[0],movieLine[1],movieLine[2],movieLine[3],
                         movieLine[4],movieLine[5],movieLine[6],movieLine[7],movieLine[8],movieLine[9],
                         movieLine[10],movieLine[11],movieLine[12],movieLine[13],movieLine[14],movieLine[15],
@@ -39,9 +39,7 @@ public class Reader {
             }
 
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (br != null) {
