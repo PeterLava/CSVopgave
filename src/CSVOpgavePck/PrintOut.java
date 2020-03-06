@@ -14,7 +14,8 @@ class PrintOut {
         System.out.println("--------------------------------------------------");
         System.out.println("-------------  1. List all movies  ---------------");
         System.out.println("-------------  2. Search for an actor  -----------");
-        System.out.println("-------------  3. Exit  --------------------------");
+        System.out.println("-------------  3. Search for a director  ---------");
+        System.out.println("-------------  4. Exit  --------------------------");
         System.out.println("--------------------------------------------------");
     }
 

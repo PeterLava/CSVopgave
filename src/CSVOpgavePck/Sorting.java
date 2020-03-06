@@ -13,7 +13,7 @@ class Sorting {
     }
 
     void searchForActor(MovieProfile[] movieProfiles){
-        System.out.print("Which actor do you want to look up?:");
+        System.out.print("Which actor would you like to look up?:");
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         for (int i = 0; i < 500 ; i++) {
@@ -26,4 +26,17 @@ class Sorting {
             }
         }
     }
+
+    void searchForDirector(MovieProfile[] movieProfiles){
+        System.out.print("Which director would you like to look up?:");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        for (int i = 0; i < 500 ; i++) {
+
+            if (input.equals(movieProfiles[i].directorName)){
+                printOut.aMovie(movieProfiles,i);
+            }
+        }
+    }
+
 }

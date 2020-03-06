@@ -33,12 +33,15 @@ public class Main {
                 sorting.searchForActor(movieProfiles);
                 break;
             case "3":
+                sorting.searchForDirector(movieProfiles);
+                break;
+            case "4":
                 run = false;
                 break;
             default:
                 System.out.print("invalid input, ");
         }
-            if(!(input.equals("3"))){
+            if(!(input.equals("4"))){
                 System.out.print("press any key for menu");
                 scan.nextLine();
             }
