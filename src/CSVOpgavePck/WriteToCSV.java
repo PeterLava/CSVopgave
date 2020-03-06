@@ -33,6 +33,9 @@ List<String> data;
             if(year.equals("")){
                 year = "unknown";
             }
+            if(title.contains(",")){
+                title = "\""+title+"\"";
+            }
             data = Arrays.asList(title,director,genre,year);
             csvWriter.append(" ");
             csvWriter.append(String.join(",", data));
