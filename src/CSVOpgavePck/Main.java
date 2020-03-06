@@ -2,57 +2,39 @@ package CSVOpgavePck;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Main {
+    private static MovieProfile[] movieProfiles = new MovieProfile[500];
+    private static Sorting sorting = new Sorting();
+    private static Init init = new Init();
+
 
     public static void main(String[] args) {
-        String csvFile = "C:/Users/lenovo/desktop/movie_metadata_500.csv";
-        BufferedReader br = null;
-        String line;
-        String cvsSplitBy = ",";
-        MovieProfile[] movieProfiles = new MovieProfile[500];
-        final String textGreen = "\u001B[32m";
-        final String textRed = "\u001B[31m";
-        final String textBlue = "\u001B[34m";
-        final String textReset = "\u001B[1;0m";
 
-        try {
-            br = new BufferedReader(new FileReader(csvFile));
-            int i = 0;
-            while ((line = br.readLine()) != null) {
-                String[] movieLine = line.split(cvsSplitBy);
-                movieProfiles[i] = new MovieProfile(movieLine[0],movieLine[1],movieLine[2],movieLine[3],
-                        movieLine[4],movieLine[5],movieLine[6],movieLine[7],movieLine[8],movieLine[9],
-                        movieLine[10],movieLine[11],movieLine[12],movieLine[13],movieLine[14],movieLine[15],
-                        movieLine[16],movieLine[17],movieLine[18],movieLine[19],movieLine[20],movieLine[21],
-                        movieLine[22],movieLine[23],movieLine[24],movieLine[25],movieLine[26],movieLine[27]);
-                i++;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        final String textBold = "\u001B[1;0m";
+        final String textReset = "\u001B[0m";
+        init.initialiseObjects(movieProfiles);
+
+
+        System.out.println(textBold);
+        System.out.println("                    Movie Menu                    "+textReset);
+        System.out.println("--------------------------------------------------");
+        System.out.println("-------------  1. List all movies  ---------------");
+        System.out.println("-------------  2. Search for an actor  -----------");
+        System.out.println("--------------------------------------------------");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        switch (input){
+            case "1": sorting.sortByYear(movieProfiles);
+            break;
+            case "2": sorting.searchForActor(movieProfiles);
+            break;
+            default:  System.out.println("invalid input");
+
+
         }
 
-      Arrays.sort(movieProfiles, (b,a) -> a.titleYear.compareTo(b.titleYear));
-
-        for (int i = 0; i < 500 ; i++) {
-            System.out.print(textReset);
-            System.out.print("Movie title: ");
-            System.out.print(textBlue+movieProfiles[i].getMovieTitle()+textReset);
-            System.out.print(" Director: ");
-            System.out.print(textGreen+movieProfiles[i].getDirectorName()+textReset);
-            System.out.print(" Genre: ");
-            System.out.print(textRed+movieProfiles[i].getGenres()+textReset);
-            System.out.print(" Year: ");
-            System.out.println(textRed+movieProfiles[i].getTitleYear()+textReset);
-        }
     }
 }
