@@ -27,7 +27,15 @@ public class Main {
 
         switch (input) {
             case "1":
-                sorting.sortByYear(movieProfiles);
+                printOut.sortingMenu();
+                input = scan.nextLine();
+                switch (input) {
+                    case "1": sorting.sortByRating(movieProfiles);
+                        break;
+                    case "2": sorting.sortByYear(movieProfiles);
+                        break;
+                    default: break;
+                }
                 break;
             case "2":
                 sorting.searchForActor(movieProfiles);

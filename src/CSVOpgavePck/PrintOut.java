@@ -19,6 +19,15 @@ class PrintOut {
         System.out.println("--------------------------------------------------");
     }
 
+    void sortingMenu(){
+        System.out.println(textBold);
+        System.out.println("                    Sort by:                      "+textReset);
+        System.out.println("--------------------------------------------------");
+        System.out.println("-------------  1. IMDB Score  --------------------");
+        System.out.println("-------------  2. Year  --------------------------");
+
+    }
+
     void aMovie(MovieProfile[] movieProfiles, int i){
         System.out.print(textBold);
         System.out.print("Movie title: ");

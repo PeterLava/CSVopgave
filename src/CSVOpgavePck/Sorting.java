@@ -12,6 +12,11 @@ class Sorting {
       printOut.allMovies(movieProfiles);
     }
 
+    void sortByRating(MovieProfile[] movieProfiles){
+        Arrays.sort(movieProfiles, (b,a) -> a.imdbScore.compareTo(b.imdbScore));
+        printOut.allMovies(movieProfiles);
+    }
+
     void searchForActor(MovieProfile[] movieProfiles){
         System.out.print("Which actor would you like to look up?:");
         Scanner scan = new Scanner(System.in);
