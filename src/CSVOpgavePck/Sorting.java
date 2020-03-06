@@ -21,11 +21,10 @@ class Sorting {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         for (int i = 0; i < 500 ; i++) {
-
-            if (    (input.equals(movieProfiles[i].actor1Name))
-                ||  (input.equals(movieProfiles[i].actor2Name))
-                ||  (input.equals(movieProfiles[i].actor3Name))
-                ){
+            String actor1 = movieProfiles[i].actor1Name.toLowerCase();
+            String actor2 = movieProfiles[i].actor2Name.toLowerCase();
+            String actor3 = movieProfiles[i].actor3Name.toLowerCase();
+            if (actor1.contains(input) ||  actor2.contains(input) ||  actor3.contains(input)){
                 printOut.aMovie(movieProfiles,i);
             }
         }
@@ -36,8 +35,8 @@ class Sorting {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         for (int i = 0; i < 500 ; i++) {
-
-            if (input.equals(movieProfiles[i].directorName)){
+        String director = movieProfiles[i].directorName.toLowerCase();
+            if (director.contains(input)){
                 printOut.aMovie(movieProfiles,i);
             }
         }
