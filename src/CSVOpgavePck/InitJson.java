@@ -29,7 +29,7 @@ class InitJson{
             System.out.println(jObj);
             fileWriter.write(jObj.toJSONString());
         }
-
+        fileWriter.flush();
 
 
 
