@@ -16,7 +16,8 @@ class PrintOut {
         System.out.println("-------------  2. Search for an actor  -----------");
         System.out.println("-------------  3. Search for a director  ---------");
         System.out.println("-------------  4. Write movielist to file  -------");
-        System.out.println("-------------  5. Exit  --------------------------");
+        System.out.println("-------------  5. Write to JSONFile  -------------");
+        System.out.println("-------------  6. Exit  --------------------------");
         System.out.println("--------------------------------------------------");
     }
 
